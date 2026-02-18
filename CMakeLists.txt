@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.31.6)
 
 project(ninjadbg VERSION 0.1 LANGUAGES CXX)
 
@@ -14,13 +14,12 @@ set(SOURCES
     src/process.cpp
 )
 
+add_executable(${PROJECT_NAME} ${SOURCES})
 
-add_executable(ninjadbg ${SOURCES})
-
-target_include_directories(ninjadbg PRIVATE include)
+target_include_directories(${PROJECT_NAME} PRIVATE include)
 
 
-target_link_libraries(ninjadbg PRIVATE pthread)
+target_link_libraries(${PROJECT_NAME} PRIVATE pthread)
 
 
 
