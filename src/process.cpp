@@ -7,7 +7,7 @@
 Process::Process(const std::string& path)
     : m_path(path) {}
 
-void Process::launch() {
+void Process::launch(){
     m_pid = fork();
 
     if (m_pid == 0) {
@@ -15,13 +15,15 @@ void Process::launch() {
         ptrace(PTRACE_TRACEME, 0, nullptr, nullptr);
         execl(m_path.c_str(), m_path.c_str(), nullptr);
     } else if (m_pid > 0) {
-        // parent
         int status;
         waitpid(m_pid, &status, 0);
     } else {
         throw DebuggerError("fork failed");
     }
+
 }
+
+
 
 pid_t Process::pid() const noexcept {
     return m_pid;

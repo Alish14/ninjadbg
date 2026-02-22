@@ -8,7 +8,6 @@ int main(int argc, char* argv[]) {
     }
 
     Debugger dbg(argv[1]);
-    while(1){
-        dbg.run();
-    }
+    dbg.run();
+    
 }
