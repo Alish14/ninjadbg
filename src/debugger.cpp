@@ -31,6 +31,8 @@ void Debugger::debugger_loop() {
             user_regs_struct regs;
             ptrace(PTRACE_GETREGS, pid, nullptr, &regs);
             std::cout << "RIP: 0x" << std::hex << regs.rip << "\n";
+            std::cout << "RSP: 0x" << std::hex << regs.rsp << "\n";
+            std::cout << "RBP: 0x" << std::hex << regs.rbp << "\n";
         }
         else if (cmd == "exit") {
             break;
