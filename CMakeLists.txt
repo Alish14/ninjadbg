@@ -10,8 +10,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -O2 -g")
 
 set(SOURCES
     src/main.cpp
-    src/debugger.cpp
-    src/process.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
